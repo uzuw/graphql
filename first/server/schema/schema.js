@@ -135,7 +135,7 @@ const mutation= new GraphQLObjectType({
         status:{type:new GraphQLEnumType({
           name:'ProjectStatus',
           values:{
-            'new': {value: 'Not started'},
+            'new': {value: 'Not Started'},
             'progress': {value: 'In Progress'},
             'completed': {value: 'Completed'}
           }
@@ -154,8 +154,18 @@ const mutation= new GraphQLObjectType({
       },
     },
 
-    
-        
+  
+  //delete project mutation
+  deleteProject:{
+    type:ProjectType,
+    args:{
+      id:{type:GraphQLNonNull(GraphQLID)}
+    },
+    resolve(parent,args){
+      return Project.findByIdAndDelete(args.id)
+    }
+
+  }   
       }
     })
 
