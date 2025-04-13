@@ -13,6 +13,7 @@ const {
   GraphQLList,
   graphql,
   GraphQLNonNull,
+  GraphQLEnumType,
 } = require('graphql');
 
 // Client Type
@@ -122,8 +123,11 @@ const mutation= new GraphQLObjectType({
       resolve(parent,args){
         return Client.findByIdAndDelete(args.id);
       }
+    } ,
+    
+    
 
-    }      
+    
         
       }
     })
