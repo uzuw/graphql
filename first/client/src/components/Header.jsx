@@ -2,7 +2,7 @@ import logo from './assets/logo.png';
 
 export default function Header() {
   return (
-    <nav className="bg-gray-800 shadow-md py-3 px-6">
+    <nav className="bg-gray-800 py-3 px-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <a href="/">
