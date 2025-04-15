@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* index.css */
+:root {
+    --font-space: 'Space Mono', monospace;
+    --font-poppins: 'Poppins', sans-serif;
+  }
+  
