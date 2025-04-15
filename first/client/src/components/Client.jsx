@@ -7,7 +7,7 @@ import Spinner from './Spinner';
 const Client = () => {
   const { loading, error, data } = useQuery(GET_CLIENTS);
 
-  if (loading) return <p className="text-gray-500"><Spinner/></p>;
+  if (loading) return <Spinner/>;
   if (error) return <p className="text-red-500">Error loading clients.</p>;
 
   return (
