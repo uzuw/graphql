@@ -11,4 +11,15 @@ const DELETE_CLIENTS=gql`
     }
 `;
 
-export {DELETE_CLIENTS};
+const ADD_CLIENT = gql`
+mutation AddClient($name: String!, $email: String!, $phone: String!) {
+  addClient(name: $name, email: $email, phone: $phone) {
+    id
+    name
+    email
+    phone
+  }
+}
+`
+
+export {DELETE_CLIENTS, ADD_CLIENT};

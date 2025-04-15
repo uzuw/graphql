@@ -65,7 +65,7 @@ const RootQuery = new GraphQLObjectType({
       type: ClientType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return LClient.findById(args.id)
+        return Client.findById(args.id)
       },
     },
 
