@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
+import ClientRow from './ClientRow';
 
 const GET_CLIENTS = gql`
   query getClients {
@@ -32,11 +33,7 @@ const Client = () => {
           </thead>
           <tbody>
             {data.clients.map((client) => (
-              <tr key={client.id} className="hover:bg-gray-50">
-                <td className="py-2 px-4 border-b">{client.name}</td>
-                <td className="py-2 px-4 border-b">{client.email}</td>
-                <td className="py-2 px-4 border-b">{client.phone}</td>
-              </tr>
+              <ClientRow key={client.id} client={client}/>
             ))}
           </tbody>
         </table>
