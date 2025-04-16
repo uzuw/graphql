@@ -34,13 +34,13 @@ const AddClientModal = () => {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="bg-[#ff456a] text-white px-4 py-2 text-1xl rounded-lg hover:bg-[#d42542] m-5"
+        className="bg-[#ff456a] text-white px-4 py-2 text-1xl rounded-lg hover:bg-[#d42542] mx-10 mt-10"
       >
         Add Client
       </button>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
+        <div className="fixed inset-0 bg-gray-900/70 flex justify-center items-center">
           <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
             <h2 className="text-xl font-bold mb-4">Add New Client</h2>
             <form onSubmit={handleSubmit} className="space-y-4">

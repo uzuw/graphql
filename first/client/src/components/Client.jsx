@@ -11,7 +11,7 @@ const Client = () => {
   if (error) return <p className="text-red-500">Error loading clients.</p>;
 
   return (
-    <div  className="p-6">
+    <div  className="p-6 m-5">
       <h1 style={{ fontFamily: 'var(--font-space)' }} className="text-2xl font-bold text-[#e23d71] mb-4">Clients</h1>
 
       <div className="overflow-x-auto">
