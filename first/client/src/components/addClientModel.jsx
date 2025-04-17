@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_CLIENT } from "../mutations/clientMutations";
 import { GET_CLIENTS } from "../queries/clientQueries";
+import { FaUser } from "react-icons/fa";
 
 const AddClientModal = () => {
   const [name, setName] = useState('');
@@ -34,8 +35,9 @@ const AddClientModal = () => {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="bg-[#ff456a] text-white px-4 py-2 text-1xl rounded-lg hover:bg-[#d42542] mx-10 mt-10"
+        className="bg-[#ff456a] text-white px-4 py-2 text-1xl rounded-lg hover:bg-[#d42542] mx-10 mt-10 flex gap-2 items-center"
       >
+        <FaUser/>
         Add Client
       </button>
 
