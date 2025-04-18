@@ -1,5 +1,6 @@
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
+
 export default function ProjectCard({ project }) {
   return (
     <div className="bg-white shadow-lg rounded-2xl p-4 border border-gray-200 hover:shadow-xl transition-shadow space-y-3">
@@ -24,6 +25,7 @@ export default function ProjectCard({ project }) {
           <VisibilityIcon style={{ fontSize: '1rem' }} />
           View
         </a>
+        
       </div>
     </div>
   );

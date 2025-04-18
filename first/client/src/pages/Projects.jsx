@@ -1,7 +1,11 @@
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PROJECT } from "../queries/projectQueries";
 import Spinner from "../components/Spinner";
+import DeleteProjectButton from "../components/DeleteProjectButton";
+import EditProject from "../components/EditProject";
+
 import {
   Container,
   Typography,
@@ -11,6 +15,9 @@ import {
   Paper,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+
+
 
 const getStatusColor = (status) => {
   switch (status) {
@@ -26,6 +33,8 @@ const getStatusColor = (status) => {
 
 const Projects = () => {
   const { id } = useParams();
+
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const { loading, error, data } = useQuery(GET_PROJECT, {
     variables: { id },
@@ -90,9 +99,30 @@ const Projects = () => {
           <Typography>Email: {client.email}</Typography>
           <Typography>Phone: {client.phone}</Typography>
         </Box>
-      </Paper>
-    </Container>
-  );
-};
+        
+        <div className="flex justify-between items-center mt-4 gap-4">
+  <DeleteProjectButton projectId={data.project.id} />
+
+  <Button
+    variant="contained"
+    color={showEditForm ? "secondary" : "primary"}
+    onClick={() => setShowEditForm((prev) => !prev)}
+    sx={{ textTransform: "none" }}
+  >
+    {showEditForm ? "Cancel Edit" : "Edit Project"}
+  </Button>
+</div>
+
+{showEditForm && (
+  <Box mt={4}>
+    <EditProject project={data.project} />
+  </Box>
+)}
+
+
+            </Paper>
+          </Container>
+        );
+      };
 
 export default Projects;

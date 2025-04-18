@@ -86,14 +86,15 @@ const AddProjectModal = () => {
                 className="w-full px-3 py-2 border rounded"
               />
               <select
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                className="w-full px-3 py-2 border rounded"
-                >
-                <option value="Not Started">Not Started</option>
-                <option value="In Progress">In Progress</option>
-                <option value="Completed">Completed</option>
-                </select>
+              value={status}
+              onChange={(e) => setStatus(e.target.value)}
+              className="w-full px-3 py-2 border rounded"
+            >
+              <option value="new">Not Started</option>
+              <option value="progress">In Progress</option>
+              <option value="completed">Completed</option>
+            </select>
+
               <select
                 value={clientId}
                 onChange={(e) => setClientId(e.target.value)}

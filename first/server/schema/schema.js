@@ -115,15 +115,22 @@ const mutation= new GraphQLObjectType({
           }},
 
     //delete a client
-    deleteClient:{
-      type:ClientType,
-      args:{
-        id:{type: GraphQLNonNull(GraphQLID)},
+    deleteClient: {
+      type: ClientType,
+      args: {
+        id: { type: GraphQLNonNull(GraphQLID) },
       },
-      resolve(parent,args){
-        return Client.findByIdAndDelete(args.id);
-      }
-    } ,
+      async resolve(parent, args) {
+        const projects = await Project.find({ clientId: args.id });
+    
+        for (const project of projects) {
+          await project.deleteOne(); // or project.remove() if still using older mongoose
+        }
+    
+        return await Client.findByIdAndDelete(args.id);
+      },
+    },
+    
     
     
     //add a project
